@@ -1,0 +1,6 @@
+.nav-link.active {
+    background-color: #f8f9fa77; /* Light background on active */
+    color: #2a2626; /* Dark text on active */
+    border-radius: 4px;
+}
+

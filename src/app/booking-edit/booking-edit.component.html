@@ -1,0 +1,138 @@
+<div class="card shadow-lg p-4 mx-auto" style="width: 50%; margin-top: 30px;">
+  <div class="card-header text-white" style="background-color: #2e85e7;">
+    <h5 class="mb-0">Edit Booking</h5>
+  </div>
+  <div class="card-body">
+    <!-- Tour ID Field (read-only as it's an identifier) -->
+    <div class="form-group mb-3">
+      <label for="tourID" class="form-label">Tour ID</label>
+      <input
+        type="text"
+        id="tourID"
+        class="form-control"
+        [(ngModel)]="booking.tourID"
+        name="tourID"
+        readonly
+      />
+    </div>
+
+    <!-- Booking Name Field -->
+    <div class="form-group mb-3">
+      <label for="bookingName" class="form-label">Booking Name</label>
+      <input
+        type="text"
+        id="bookingName"
+        class="form-control"
+        [(ngModel)]="booking.tourName"
+        name="tourName"
+        required
+        minlength="3"
+        maxlength="50"
+        #tourNameInput="ngModel"
+      />
+      <div *ngIf="tourNameInput.invalid && (tourNameInput.dirty || tourNameInput.touched)" class="text-danger">
+        Booking name is required and must be between 3-50 characters.
+      </div>
+    </div>
+
+    <!-- Duration Field -->
+    <div class="form-group mb-3">
+      <label for="duration" class="form-label">Duration</label>
+      <input
+        type="text"
+        id="duration"
+        class="form-control"
+        [(ngModel)]="booking.duration"
+        name="duration"
+        required
+        pattern="^[0-9]+ days$"
+        #durationInput="ngModel"
+      />
+      <div *ngIf="durationInput.invalid && (durationInput.dirty || durationInput.touched)" class="text-danger">
+        Duration is required and must be specified in days (e.g., "7 days").
+      </div>
+    </div>
+
+    <!-- Price Field -->
+    <div class="form-group mb-3">
+      <label for="price" class="form-label">Price ($)</label>
+      <input
+        type="number"
+        id="price"
+        class="form-control"
+        [(ngModel)]="booking.price"
+        name="price"
+        required
+        min="0"
+        #priceInput="ngModel"
+      />
+      <div *ngIf="priceInput.invalid && (priceInput.dirty || priceInput.touched)" class="text-danger">
+        Price is required and must be a positive number.
+      </div>
+    </div>
+
+    <!-- Image Upload Field -->
+    <div class="form-group mb-3">
+      <label for="imageUpload" class="form-label">Upload Image</label>
+      <input
+        type="file"
+        id="imageUpload"
+        class="form-control"
+        (change)="onImageSelected($event)"
+        accept="image/*"
+      />
+      <div *ngIf="imagePreview" class="mt-3">
+        <label>Image Preview:</label>
+        <img [src]="imagePreview" alt="Image Preview" class="img-thumbnail" style="width: 100%; max-width: 200px;" />
+      </div>
+    </div>
+
+    <!-- Rating Field -->
+    <div class="form-group mb-3">
+      <label for="rating" class="form-label">Rating</label>
+      <input
+        type="number"
+        id="rating"
+        class="form-control"
+        [(ngModel)]="booking.rating"
+        name="rating"
+        required
+        min="1"
+        max="5"
+        #ratingInput="ngModel"
+      />
+      <div *ngIf="ratingInput.invalid && (ratingInput.dirty || ratingInput.touched)" class="text-danger">
+        Rating is required and must be between 1 and 5.
+      </div>
+    </div>
+
+    <!-- Description Field -->
+    <div class="form-group mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        id="description"
+        class="form-control"
+        [(ngModel)]="booking.description"
+        name="description"
+        rows="3"
+        required
+        minlength="10"
+        maxlength="500"
+        #descriptionInput="ngModel"
+      ></textarea>
+      <div *ngIf="descriptionInput.invalid && (descriptionInput.dirty || descriptionInput.touched)" class="text-danger">
+        Description is required and must be between 10 and 500 characters.
+      </div>
+    </div>
+
+    <!-- Save Button -->
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="onSave()"
+
+    >
+      Save
+    </button>
+  </div>
+</div>

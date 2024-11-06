@@ -1,0 +1,15 @@
+.large-image {
+    height: 100%; /* Ensures the large image takes the full height */
+    object-fit: cover; /* Makes sure the image doesn't stretch */
+  }
+  
+  .flex-grow-1 {
+    flex-grow: 1; /* Makes the third image fill the remaining vertical space */
+  }
+  
+  .align-self-end {
+    align-self: flex-end; /* Aligns the third image to the bottom of the column */
+  }
+  
+  
+  

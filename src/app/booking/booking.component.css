@@ -1,0 +1,12 @@
+.card {
+    width: 85%; /* Adjust this percentage to change the card width */
+    margin: 0 auto; /* Center the card */
+  }
+  .card-img {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover; /* Maintains aspect ratio and covers the area */
+    object-position: center;
+}
+

@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="card shadow-lg border-0 rounded-lg">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-stretch">
+        <!-- Content on the Left -->
+        <div class="content-left w-50 pr-3">
+          <!-- Main Title -->
+          <h2 class="card-title font-weight-bold mb-2" style="font-size: 2rem; letter-spacing: 0.5px; text-align: left;">{{ booking?.tourName }} Getaway</h2>
+          <div class="d-flex align-items-center mb-4" style="text-align: left;">
+            <i class="fa fa-star text-warning mr-2" aria-hidden="true" style="font-size: 1.25rem;"></i>
+            <p class="mb-0" style="font-size: 1.1rem;">{{ booking?.rating }}/5 Rating</p>
+          </div>
+
+          <!-- Tour Description -->
+          <div class="mb-4">
+            <p class="text-muted">{{ booking?.description }}</p>
+          </div>
+
+          <!-- Tour Info -->
+          <div class="d-flex justify-content-around py-3 border-top border-bottom">
+            <div>
+              <h6 class="text-uppercase">Duration</h6>
+              <p>{{ booking?.duration }}</p>
+            </div>
+            <div>
+              <h6 class="text-uppercase">Price</h6>
+              <p class="fw-bold" style="color: #2e85e7;">{{ booking?.price | currency:'INR' }}</p>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="d-flex justify-content-start mt-4">
+            <button class="btn btn-primary me-3 px-4">Book Now</button>
+            <button class="btn btn-outline-primary me-3" (click)="onEdit()">Edit</button>
+            <button class="btn btn-secondary" (click)="onBack()">Go Back</button>
+          </div>
+        </div>
+
+        <!-- Tour Image on the Right -->
+        <div class="content-right w-50 text-center py-4">
+          <img [src]="booking?.image" class="img-fluid rounded shadow-sm" alt="{{ booking?.tourName }}" style="width: 60%; height: 500px; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

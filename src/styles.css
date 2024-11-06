@@ -1,0 +1,28 @@
+
+
+  .carousel-image1 {
+    background-image: url("assets/about-image1.jpg");
+    height: 400px; 
+    background-size: cover; 
+    background-position: center; 
+  }
+  
+  .carousel-image2 {
+    background-image: url("assets/about-image2.jpg"); 
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .carousel-image3 {
+    background-image: url("assets/s1.jpg"); /* Use a different image */
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+  }
+
+ 
+
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
